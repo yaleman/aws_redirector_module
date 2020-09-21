@@ -44,7 +44,7 @@ resource aws_s3_bucket_policy site_bucket {
 # grab a certificate
 resource aws_acm_certificate cert {
   domain_name       = var.source_hostname
-  validation_method = var.cert_validation_methd
+  validation_method = var.cert_validation_method
 
   tags = local.common_tags
 
