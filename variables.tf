@@ -53,3 +53,9 @@ variable cloudfront_price_class {
     default = "PriceClass_100"
     description = "CloudFront price class - info here: https://aws.amazon.com/cloudfront/pricing/, default is super cheap"
 }
+
+variable cert_validation_method {
+    type = string
+    default = "DNS"
+    description = "Method for validating your certificate"
+}
