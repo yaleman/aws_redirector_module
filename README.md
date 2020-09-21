@@ -4,7 +4,7 @@ Makes an S3-hosted redirector, fronted by CloudFront.
 
 Example Usage:
 
-    module wiki_yaleman_org {
+    module redirector {
         source = "github.com/yaleman/aws_redirector_module"
         source_hostname = "redirectme.example.com"
         target_hostname = "github.com"
