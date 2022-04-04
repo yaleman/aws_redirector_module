@@ -1,14 +1,34 @@
 # store the redirector
 resource aws_s3_bucket bucket {
     bucket = var.source_hostname
-    acl = "%{ if var.make_bucket_public == true }public-read%{else}private%{endif}"
-
     tags = local.common_tags
 
-    website {
-        index_document = "index.html"
-        routing_rules = local.routing_rules
+   
+}
+
+
+resource aws_s3_bucket_website_configuration bucket {
+  bucket = aws_s3_bucket.bucket.bucket
+  index_document {
+    suffix = "index.html"
+  }
+
+  
+    routing_rule {
+    # condition {
+      # key_prefix_equals = "docs/"
+    # }
+    redirect {
+      replace_key_prefix_with = var.replace_key_prefix_with
+      replace_key_with = var.replace_key_with
+      host_name = var.target_hostname
     }
+  }
+}
+
+resource aws_s3_bucket_acl bucket {
+  bucket = aws_s3_bucket.bucket.id
+  acl    = "%{ if var.make_bucket_public == true }public-read%{else}private%{endif}"
 }
 
 # S3 Policy Document Data
