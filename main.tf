@@ -14,7 +14,7 @@ resource aws_s3_bucket_website_configuration bucket {
   }
 
   
-    routing_rule {
+  routing_rule {
     # condition {
       # key_prefix_equals = "docs/"
     # }

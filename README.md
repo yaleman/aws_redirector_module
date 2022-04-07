@@ -13,9 +13,14 @@ Example Usage:
 
 This'll redirect `redirectme.example.com` to `https://github.com/yaleman/aws_redirector_module/`.
 
-Outputs
+# Outputs
 
 | Name | Value |
 | --- | --- |
 | cert_domain_validation | map of data about how to validate your certificate |
 | cert_status | Status of the ACM certificate |
+
+
+# Changelog
+
+* 2022-04-04 - Updated to v4 aws terraform module
