@@ -1,9 +1,17 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.27.0"
+    }
+  }
+}
+
+
 # store the redirector
 resource aws_s3_bucket bucket {
     bucket = var.source_hostname
     tags = local.common_tags
-
-   
 }
 
 
