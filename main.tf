@@ -21,7 +21,9 @@ resource aws_s3_bucket_website_configuration bucket {
     suffix = "index.html"
   }
 
-  
+  error_document  {
+    key = "index.html"
+  }
   routing_rule {
     # condition {
       # key_prefix_equals = "docs/"
@@ -102,7 +104,6 @@ resource  aws_cloudfront_distribution cloudfront {
       origin_read_timeout = 30
       origin_ssl_protocols = [
         "TLSv1.2",
-        "TLSv1.3",
       ]
     }
   }
