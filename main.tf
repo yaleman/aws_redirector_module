@@ -92,7 +92,7 @@ resource  aws_cloudfront_distribution cloudfront {
   comment             = "${var.source_hostname} Distribution"
   aliases = [var.source_hostname]
   origin {
-    domain_name = aws_s3_bucket.bucket.website_domain
+    domain_name = aws_s3_bucket_website_configuration.bucket.website_endpoint
     origin_id   = local.cloudfront_s3_origin_id
     custom_origin_config {
       http_port = 80
@@ -102,6 +102,7 @@ resource  aws_cloudfront_distribution cloudfront {
       origin_read_timeout = 30
       origin_ssl_protocols = [
         "TLSv1.2",
+        "TLSv1.3",
       ]
     }
   }
